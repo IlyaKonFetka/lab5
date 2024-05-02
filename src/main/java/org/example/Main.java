@@ -7,6 +7,7 @@ import java.text.ParseException;
 
 public class Main {
     public static void main(String[] args) {
+        //check
         var standardConsole = new StandardConsole();
         if (args.length == 0) {
             standardConsole.println("Введите имя загружаемого файла, как аргумент командной строки");
