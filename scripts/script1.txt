@@ -1,0 +1,19 @@
+add
+Ilya
+55
+55
+no
+178
+58
+1234
+null
+add
+Ilya
+55
+55
+no
+178
+58
+123456
+null
+execute_script scripts/script1.txt
