@@ -48,13 +48,14 @@ public class CollectionManager {
      */
     Comparator<Person>passportIDComparator = Comparator.comparing(Person::getName);
 
-    public LocalDateTime getLastInitTime() {
+    public LocalDateTime getLastInitTime() throws NullPointerException{
         return lastInitTime;
     }
 
-    public LocalDateTime getLastSaveTime() {
+    public LocalDateTime getLastSaveTime() throws NullPointerException{
         return lastSaveTime;
     }
+
     public void setLastInitTime() {
         this.lastInitTime = LocalDateTime.now();
     }

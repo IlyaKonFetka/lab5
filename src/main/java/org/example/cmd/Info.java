@@ -19,7 +19,7 @@ public class Info extends Command{
 
     /**
      * Выполняет команду
-     * @param userCommandArgument - не уитывается
+     * @param userCommandArgument - не учитывается
      * @param isScript - была ли запущена команда из скрипта
      * @return объект-ответ
      */
@@ -29,8 +29,16 @@ public class Info extends Command{
         console.println("_____________________________________________________________");
         console.println("тип коллекции: " + collectionManager.getCollection().getClass());
         console.println("количество элементов: " + collectionManager.getCollection().size());
-        console.println("время последней инициализации: " + collectionManager.getLastInitTime().format(Person.timeFormatter));
-        console.println("время последнего сохранения: " + collectionManager.getLastSaveTime().format(Person.timeFormatter));
+        try {
+            console.println("время последней инициализации: " + collectionManager.getLastInitTime().format(Person.timeFormatter));
+        }catch (NullPointerException e){
+            console.println("время последней инициализации: инициализация не происходила");
+        }
+        try {
+            console.println("время последнего сохранения: " + collectionManager.getLastSaveTime().format(Person.timeFormatter));
+        }catch(NullPointerException e){
+            console.println("время последнего сохранения: сохранения не происходило");
+        }
         console.println("адрес файла-хранилища: " + collectionManager.getFileName());
         return new ExecutionResponse(true,"информация выведена");
     }

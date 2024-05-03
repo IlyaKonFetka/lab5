@@ -41,7 +41,6 @@ public class Runner {
                 userCommandArgument = console.readln().trim();
 
                 commandStatus = launchCommand(userCommandName, userCommandArgument);
-                commandManager.addToHistory(userCommandName);
                 if (commandStatus.getMassage().equals("exit")) break;
 
                 if(commandStatus.getExitCode()) console.printSuccessful(commandStatus.getMassage());
@@ -66,6 +65,7 @@ public class Runner {
 
         if (command == null) return new ExecutionResponse(false, "Команда '" + userCommandName
                 + "' не найдена. Наберите 'help' для справки");
+        commandManager.addToHistory(userCommandName);
         return command.apply(userCommandArgument, commandManager.isScript());
     }
 }
